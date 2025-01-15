@@ -5,8 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import AboutComponent from "./About";
 import DefaultComponent from "./Default";
-import Sidebar from "./SideBar"
-import ErrorMessage from './ErrorPage';
+import Sidebar from "./SideBar";
 const Navbar = () => {
   const { data: session } = useSession();
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -35,7 +34,7 @@ const Navbar = () => {
       {/* Navbar */}
       <nav
         className={`flex items-center justify-between px-6 py-4 shadow-lg ${
-          isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+          isDarkMode ? "bg-gray-900 text-white" : "bg-gradient-to-br from-teal-100 to-teal-50 text-gray-900"
         }`}
       >
         {/* Always Display QuickView */}

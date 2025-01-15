@@ -1,15 +1,19 @@
 "use client";
 
 import React from "react";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const DefaultComponent = ({ isDarkMode }: { isDarkMode: boolean }) => {
   return (
     <div
       className={`min-h-screen flex items-center justify-center ${
-        isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+        isDarkMode ? "bg-gradient-to-br from-slate-800 to-slate-900 text-white" : "bg-gray-200 text-gray-900"
       } transition duration-500`}
     >
-      <div className="text-center p-8 rounded-xl shadow-lg bg-white dark:bg-gray-800 max-w-md">
+      <div className={`text-center p-8 rounded-xl shadow-lg max-w-md
+        ${
+        isDarkMode ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white" : "bg-gradient-to-r from-purple-500 to-pink-500 text-gray-900"
+      }`}>
         <h1 className="text-3xl font-semibold mb-4">Welcome to QuickView!</h1>
         <p className="text-lg mb-6">
           This is your one-stop platform for weather, news, and stock market

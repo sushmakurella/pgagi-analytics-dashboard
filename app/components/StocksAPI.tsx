@@ -31,7 +31,7 @@ const StockDashboard: React.FC<StockDashboardProps> = ({ isDarkMode }) => {
   const [timeRange, setTimeRange] = useState('1d'); // Default time range
 
   const fetchStockData = async (symbol: string, range: string) => {
-    const STOCK_API_KEY = '2S5XVTL0BDH3VAC1'; // Replace with your valid API key
+    const STOCK_API_KEY = process.env.NEXT_PUBLIC_STOCK_API_KEY; // Replace with your valid API key
     let functionType = 'TIME_SERIES_INTRADAY';
     let interval = '5min';
 
