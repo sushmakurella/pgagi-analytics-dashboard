@@ -24,6 +24,8 @@ const Navbar = () => {
   const toggleAbout = () => {
     setShowAbout(!showAbout); // Toggle visibility of AboutComponent
   };
+  if(session && session.user)
+  console.log(session.user.image);
 
   return (
     <div className={`${
@@ -59,12 +61,11 @@ const Navbar = () => {
 
           {/* User Authentication */}
           {session && session.user ? (
-            <div className="relative">
+            <div className="relative z-50">
               {/* Profile Picture */}
               <img
                 src={
-                  session.user.image ||
-                  "https://www.vecteezy.com/free-vector/default-profile-picture"
+                  "https://banner2.cleanpng.com/20180327/ssq/kisspng-computer-icons-user-profile-avatar-profile-5ab9e3b05772c0.6947928615221318883582.jpg"
                 }
                 alt="Profile"
                 className="w-10 h-10 rounded-full cursor-pointer"
@@ -80,8 +81,7 @@ const Navbar = () => {
                   <div className="flex flex-col items-center">
                     <img
                       src={
-                        session.user.image ||
-                        "https://www.vecteezy.com/free-vector/default-profile-picture"
+                        "https://banner2.cleanpng.com/20180327/ssq/kisspng-computer-icons-user-profile-avatar-profile-5ab9e3b05772c0.6947928615221318883582.jpg"
                       }
                       alt="Profile"
                       className="w-16 h-16 rounded-full"

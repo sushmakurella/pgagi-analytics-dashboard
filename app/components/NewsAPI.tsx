@@ -40,7 +40,9 @@ const NewsAPI: React.FC<NewsAPIProps> = ({ isDarkMode }) => {
     setLoading(true);
     setError(null);
     try {
-      const url = `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=c8d9d76f8fb548f180507e1555d0a8de`;
+      const NEWS_API_KEY = process.env.NEXT_PUBLIC_NEWS_API_KEY?? "";
+      console.log(NEWS_API_KEY+" hhhh");
+      const url = `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${NEWS_API_KEY}`;
       const response = await fetch(url);
       const data = await response.json();
 

@@ -29,7 +29,7 @@ const StockDashboard: React.FC<StockDashboardProps> = ({ isDarkMode }) => {
   const [timeRange, setTimeRange] = useState('1d'); // Default time range
 
   const fetchStockData = async (symbol: string, range: string) => {
-    const API_KEY = '2S5XVTL0BDH3VAC1'; // Replace with your valid API key
+    const STOCK_API_KEY = '2S5XVTL0BDH3VAC1'; // Replace with your valid API key
     let functionType = 'TIME_SERIES_INTRADAY';
     let interval = '5min';
 
@@ -39,7 +39,7 @@ const StockDashboard: React.FC<StockDashboardProps> = ({ isDarkMode }) => {
       interval = '';
     }
 
-    const url = `https://www.alphavantage.co/query?function=${functionType}&symbol=${symbol}&${interval && `interval=${interval}&`}apikey=${API_KEY}`;
+    const url = `https://www.alphavantage.co/query?function=${functionType}&symbol=${symbol}&${interval && `interval=${interval}&`}apikey=${STOCK_API_KEY}`;
 
     try {
       const response = await fetch(url);
@@ -105,8 +105,8 @@ const StockDashboard: React.FC<StockDashboardProps> = ({ isDarkMode }) => {
       return;
     }
 
-    const API_KEY = '2S5XVTL0BDH3VAC1'; // Replace with your valid API key
-    const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${query}&apikey=${API_KEY}`;
+    const STOCK_API_KEY = process.env.NEXT_PUBLIC_STOCK_API_KEY; 
+    const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${query}&apikey=${STOCK_API_KEY}`;
 
     try {
       const response = await fetch(url);

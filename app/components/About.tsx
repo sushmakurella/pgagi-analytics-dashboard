@@ -80,7 +80,7 @@ const AboutComponent: React.FC<AboutComponentProps> = ({ isDarkMode }) => {
               }`}
             >
               Stay informed with the latest headlines and news articles from
-              multiple trusted sources. Keep track of what's happening around
+              multiple trusted sources. Keep track of whats happening around
               the world.
             </p>
           </div>
@@ -119,7 +119,7 @@ const AboutComponent: React.FC<AboutComponentProps> = ({ isDarkMode }) => {
         >
           <p className="text-lg">
             QuickView is designed to be a one-stop platform for all your vital
-            information needs. From weather to stocks and news, we've got you
+            information needs. From weather to stocks and news, we have got you
             covered!
           </p>
         </div>

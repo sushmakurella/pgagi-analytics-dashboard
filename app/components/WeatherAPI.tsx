@@ -59,7 +59,7 @@ const CitySearch: React.FC<CitySearchProps> = ({ isDarkMode }) => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [forecastData, setForecastData] = useState<ForecastData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const WEATHER_API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
@@ -71,13 +71,13 @@ const CitySearch: React.FC<CitySearchProps> = ({ isDarkMode }) => {
 
     try {
       const weatherResponse = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=edc1b6ac7beb8cc8b6fc14e2351a28d2&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${WEATHER_API_KEY}&units=metric`
       );
       const weather = await weatherResponse.json();
       setWeatherData(weather);
 
       const forecastResponse = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=edc1b6ac7beb8cc8b6fc14e2351a28d2&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=${WEATHER_API_KEY}&units=metric`
       );
       const forecast = await forecastResponse.json();
 
@@ -104,7 +104,7 @@ const CitySearch: React.FC<CitySearchProps> = ({ isDarkMode }) => {
       if (query.length > 2) {
         try {
           const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/find?q=${query}&limit=5&appid=edc1b6ac7beb8cc8b6fc14e2351a28d2`
+            `https://api.openweathermap.org/data/2.5/find?q=${query}&limit=5&appid=${WEATHER_API_KEY}`
           );
           const data = await response.json();
 
@@ -261,6 +261,26 @@ const CitySearch: React.FC<CitySearchProps> = ({ isDarkMode }) => {
               />
             </div>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className={`rounded-lg shadow-lg p-6`}>
+                  <h3 className="text-lg font-semibold mb-4 text-center">Temperature Forecast</h3>
+                   <div className={`h-80 ${
+        isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'
+      }`}>
+                     <Line options={chartOptions} data={temperatureData} />
+                   </div>
+                </div>
+                <div className={`rounded-lg shadow-lg p-6${
+        isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'
+      }`}>
+                    <h3 className="text-lg font-semibold mb-4 text-center">Humidity Forecast</h3>
+                    <div className={`h-80 ${
+        isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'
+      }`}>
+                    <Bar options={chartOptions } data={humidityData} />
+                </div>
+                </div>
+            </div>
 
           {/* 5-Day Forecast */}
           {forecastData.length > 0 && (
@@ -272,6 +292,7 @@ const CitySearch: React.FC<CitySearchProps> = ({ isDarkMode }) => {
                 <div className={`flex flex-wrap justify-between gap-2 ${
         isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-800'
       }`}>
+        
                   {forecastData.map((day, index) => (
                     <div
                       key={index}
@@ -304,40 +325,23 @@ const CitySearch: React.FC<CitySearchProps> = ({ isDarkMode }) => {
                       </div>
                     </div>
                   ))}
-                    <div className={`w-100  border border-gray-200 rounded-lg shadow-md overflow-hidden hover:scale-105 transform transition-all duration-300 ${
+                    
+                </div>
+                
+              </div>
+              <div className={`w-100  flex items-center justify-center border border-gray-200 rounded-lg shadow-md overflow-hidden hover:scale-105 transform transition-all duration-300 ${
         isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'
       }`}
                     >
                         <h3 className="text-lg font-semibold mb-4 text-center">Wind Speed Distribution</h3>
-                        <div className={`h-80 ${
+                        <div className={`h-100 ${
         isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'
       }`}>
                          <Pie data={pieData} />
                         </div>
                     </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className={`rounded-lg shadow-lg p-6`}>
-                  <h3 className="text-lg font-semibold mb-4 text-center">Temperature Forecast</h3>
-                   <div className={`h-80 ${
-        isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'
-      }`}>
-                     <Line options={chartOptions} data={temperatureData} />
-                   </div>
-                </div>
-                <div className={`rounded-lg shadow-lg p-6${
-        isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'
-      }`}>
-                    <h3 className="text-lg font-semibold mb-4 text-center">Humidity Forecast</h3>
-                    <div className={`h-80 ${
-        isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'
-      }`}>
-                    <Bar options={chartOptions } data={humidityData} />
-                </div>
-                </div>
-            </div>
         </div>
+        
           )}
         </div>
       )}
