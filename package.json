@@ -12,6 +12,7 @@
     "admindash": "file:",
     "chart.js": "^4.4.7",
     "chartjs-adapter-date-fns": "^3.0.0",
+    "jsonwebtoken": "^9.0.2",
     "next": "15.1.4",
     "next-auth": "^4.24.11",
     "react": "^19.0.0",
