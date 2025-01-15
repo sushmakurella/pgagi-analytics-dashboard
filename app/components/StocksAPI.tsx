@@ -13,6 +13,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Line, Bar } from 'react-chartjs-2';
+import ErrorMessage from './ErrorPage';
+
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, BarElement, TimeScale, Tooltip, Legend);
 

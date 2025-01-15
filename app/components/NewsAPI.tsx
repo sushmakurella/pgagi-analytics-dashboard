@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-
+import ErrorMessage from './ErrorPage';
 interface Article {
   source: {
     id: string | null;
@@ -100,9 +100,10 @@ const NewsAPI: React.FC<NewsAPIProps> = ({ isDarkMode }) => {
       )}
 
       {error && (
-        <div className="text-center text-red-500">
-          <p>Error: {error}</p>
-        </div>
+        // <div className="text-center text-red-500">
+        //   <p>Error: {error}</p>
+        // </div>
+           <ErrorMessage message={error}/>
       )}
 
       {!loading && !error && articles.length > 0 && (

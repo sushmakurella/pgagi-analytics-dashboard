@@ -6,6 +6,7 @@ import { FaMoon, FaSun } from "react-icons/fa";
 import AboutComponent from "./About";
 import DefaultComponent from "./Default";
 import Sidebar from "./SideBar"
+import ErrorMessage from './ErrorPage';
 const Navbar = () => {
   const { data: session } = useSession();
   const [isDarkMode, setIsDarkMode] = useState(false);
