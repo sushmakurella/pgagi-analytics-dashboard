@@ -1,20 +1,20 @@
-#### Project Completion Report
-### Title: Interactive Dashboard Application with Next.js, React, and TypeScript
+# Project Completion Report
+## Title: Interactive Dashboard Application with Next.js, React, and TypeScript
 
 ## Introduction
 This document details the successful implementation of a feature-rich dashboard application, meeting all specified requirements using Next.js, React, and TypeScript. The application integrates advanced frontend technologies and multiple public APIs to deliver real-time data and an intuitive user experience.
 
 ## Development Highlights
-# 1.Frameworks and Technologies: Next.JS with react and Typescript, tailwindcss.
+### 1.Frameworks and Technologies: Next.JS with react and Typescript, tailwindcss.
 
 
 
-# 2. State Management
+### 2. State Management
 Implemented Redux Toolkit for efficient state management, ensuring clean, predictable, and centralized state updates.
 Used RTK Query for seamless data fetching, caching, and integration with Redux.
 Designed separate slices for managing data domains like weather, news, and finance.
 
-# 3. API Integrations
+### 3. API Integrations
 I successfully integrated the following APIs, delivering dynamic, real-time data:
 a. Weather API (OpenWeatherMap)
 Features Developed:
@@ -35,7 +35,7 @@ Implemented autocomplete for stock symbol search functionality.
 Designed interactive stock charts using Chart.js with features like zoom and hover.
 Provided historical data analysis for various timeframes (1 day to 1 year).
 
-# 4. Additional Features
+### 4. Additional Features
 Integrated an nextauth.js authentication with google provider.
 
 Challenges and Solutions
@@ -72,7 +72,8 @@ Run the development server:
 The project was successfully developed, incorporating all the required features and meeting the defined objectives. It stands as a robust, scalable, and user-friendly dashboard application, leveraging cutting-edge tools and technologies.
 I am confident this application demonstrates my ability to design, develop, and deliver complex projects while adhering to best practices.
 
-
+##Vedio Demo:
+https://drive.google.com/file/d/1ESTACn6brgJ64uRCs-J96LvvVPW9OYn7/view?usp=sharing
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
